@@ -167,9 +167,13 @@ function submitAnswer(answerResistance, answerPercentage) {
   } else {
     // alert("Try again")
     document.getElementById("incorrect").style.display = "block"
-  }
+  } 
+}
 
-  
+function newGame() {
+  score = 0
+  document.getElementById("score").innerHTML = "Score: " + score
+  generateAnswer()
 }
 
 function exitGame(){
@@ -179,7 +183,6 @@ function exitGame(){
   document.getElementById("game").style.display = "none"
   document.getElementById("exitGameButton").style.display = "none"
   document.getElementById("incorrect").style.display = "none"
-  score = 0
 }
 
 function rules() {
@@ -200,7 +203,7 @@ function scores() {
   document.getElementById("exitGameButton").innerHTML = "Main Menu"
 }
 
-document.getElementById("newGameButton").addEventListener("click", generateAnswer);
+document.getElementById("newGameButton").addEventListener("click", newGame);
 document.getElementById("next").addEventListener("click", submitAnswer)
 document.getElementById("exitGameButton").addEventListener("click", exitGame)
 document.getElementById("rulesButton").addEventListener("click", rules)
