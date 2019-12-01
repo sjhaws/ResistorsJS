@@ -29,7 +29,7 @@ function generateAnswer() {
 
   document.getElementById("one").classList.remove(color1)
   document.getElementById("labelOne").innerHTML = ""
-  document.getElementById("two").classgList.remove(color2)
+  document.getElementById("two").classList.remove(color2)
   document.getElementById("labelTwo").innerHTML = ""
   document.getElementById("three").classList.remove(color3)
   document.getElementById("labelThree").innerHTML = ""
