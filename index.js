@@ -21,9 +21,15 @@ var color4
 
 
 function generateAnswer() {
+  document.getElementById("menu").style.display = "none"
+  document.getElementById("highScore").style.display = "none"
+  document.getElementById("rules").style.display = "none"
+  document.getElementById("game").style.display = "block"
+  document.getElementById("exitGameButton").style.display = "inline"
+
   document.getElementById("one").classList.remove(color1)
   document.getElementById("labelOne").innerHTML = ""
-  document.getElementById("two").classList.remove(color2)
+  document.getElementById("two").classgList.remove(color2)
   document.getElementById("labelTwo").innerHTML = ""
   document.getElementById("three").classList.remove(color3)
   document.getElementById("labelThree").innerHTML = ""
@@ -165,5 +171,32 @@ function submitAnswer(answerResistance, answerPercentage) {
   
 }
 
-document.getElementById("newGame").addEventListener("click", generateAnswer);
+function exitGame(){
+  document.getElementById("menu").style.display = "block"
+  document.getElementById("highScore").style.display = "none"
+  document.getElementById("rules").style.display = "none"
+  document.getElementById("game").style.display = "none"
+  document.getElementById("exitGame").style.display = "none"
+}
+
+function rules() {
+  document.getElementById("menu").style.display = "none"
+  document.getElementById("highScore").style.display = "none"
+  document.getElementById("rules").style.display = "block"
+  document.getElementById("game").style.display = "none"
+  document.getElementById("exitGame").style.display = "none"
+}
+
+function scores() { 
+  document.getElementById("menu").style.display = "none"
+  document.getElementById("highScore").style.display = "block"
+  document.getElementById("rules").style.display = "none"
+  document.getElementById("game").style.display = "none"
+  document.getElementById("exitGame").style.display = "none"
+}
+
+document.getElementById("newGameButton").addEventListener("click", generateAnswer);
 document.getElementById("next").addEventListener("click", submitAnswer)
+document.getElementById("exitGameButton").addEventListener("click", exitGame)
+document.getElementById("rulesButton").addEventListener("click", rules)
+document.getElementById("highScoreButton").addEventListener("click", scores)
