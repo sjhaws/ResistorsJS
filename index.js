@@ -26,6 +26,7 @@ function generateAnswer() {
   document.getElementById("rules").style.display = "none"
   document.getElementById("game").style.display = "block"
   document.getElementById("exitGameButton").style.display = "inline"
+  document.getElementById("exitGameButton").innerHTML = "Exit Game"
 
   document.getElementById("one").classList.remove(color1)
   document.getElementById("labelOne").innerHTML = ""
@@ -176,7 +177,7 @@ function exitGame(){
   document.getElementById("highScore").style.display = "none"
   document.getElementById("rules").style.display = "none"
   document.getElementById("game").style.display = "none"
-  document.getElementById("exitGame").style.display = "none"
+  document.getElementById("exitGameButton").style.display = "none"
 }
 
 function rules() {
@@ -184,7 +185,8 @@ function rules() {
   document.getElementById("highScore").style.display = "none"
   document.getElementById("rules").style.display = "block"
   document.getElementById("game").style.display = "none"
-  document.getElementById("exitGame").style.display = "none"
+  document.getElementById("exitGameButton").style.display = "inline"
+  document.getElementById("exitGameButton").innerHTML = "Main Menu"
 }
 
 function scores() { 
@@ -192,7 +194,8 @@ function scores() {
   document.getElementById("highScore").style.display = "block"
   document.getElementById("rules").style.display = "none"
   document.getElementById("game").style.display = "none"
-  document.getElementById("exitGame").style.display = "none"
+  document.getElementById("exitGameButton").style.display = "inline"
+  document.getElementById("exitGameButton").innerHTML = "Main Menu"
 }
 
 document.getElementById("newGameButton").addEventListener("click", generateAnswer);
