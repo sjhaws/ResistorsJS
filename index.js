@@ -178,6 +178,8 @@ function exitGame(){
   document.getElementById("rules").style.display = "none"
   document.getElementById("game").style.display = "none"
   document.getElementById("exitGameButton").style.display = "none"
+  document.getElementById("incorrect").style.display = "none"
+  score = 0
 }
 
 function rules() {
