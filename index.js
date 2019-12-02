@@ -251,6 +251,7 @@ function newGame() {
   totalSeconds = 0
   document.getElementById("score").innerHTML = "Score: " + score
   generateAnswer()
+  clearInterval(timerVar)
   timerVar = setInterval(countTimer, 1000);
 }
 
