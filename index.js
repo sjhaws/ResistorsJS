@@ -8,12 +8,13 @@ var highscore2 = null
 var highscore3 = null
 var highscore4 = null
 var highscore5 = null
-
+var timerVar
+var totalSeconds
+var seconds
 var key1
 var key2
 var key3
 var key4
-
 var color1
 var color2
 var color3
@@ -25,6 +26,8 @@ function generateAnswer() {
   document.getElementById("highScore").style.display = "none"
   document.getElementById("rules").style.display = "none"
   document.getElementById("game").style.display = "block"
+  document.getElementById("rulesButton").style.display = "none"
+  document.getElementById("highScoreButton").style.display = "none"
   document.getElementById("exitGameButton").style.display = "inline"
   document.getElementById("exitGameButton").innerHTML = "Exit Game"
 
@@ -144,6 +147,61 @@ function generateAnswer() {
   // submitAnswer(1,2)
 }
 
+function countTimer() {
+  if (totalSeconds < 60) {
+  ++totalSeconds;
+  var minute = Math.floor((totalSeconds)/60);
+  var seconds = totalSeconds;
+  var seconds = totalSeconds - (minute*60);
+  document.getElementById("timer").innerHTML = "Timer: " + seconds;
+  } else {
+    alert("Game Over. Your score was: " + score)
+    scores()
+    clearInterval(timerVar)
+    if (score >= highscore1) {
+      highscore5 = highscore4
+      highscore4 = highscore3
+      highscore3 = highscore2
+      highscore2 = highscore1
+      highscore1 = score
+      renderHighScores()
+
+    } else if (score >= highscore2) {
+      highscore5 = highscore4
+      highscore4 = highscore3
+      highscore3 = highscore2
+      highscore2 = score
+      renderHighScores()
+
+    } else if (score >= highscore3) {
+      highscore5 = highscore4
+      highscore4 = highscore3
+      highscore3 = score
+      renderHighScores()
+
+    } else if (score >= highscore4) {
+      highscore5 = highscore4
+      highscore4 = score
+      renderHighScores()
+
+    } else if (score >= highscore5) {
+      highscore5 = score
+      renderHighScores()
+
+    } else {
+      renderHighScores()
+    }
+  }
+};
+
+function renderHighScores() {
+  document.getElementById("firstScore").innerHTML = highscore1
+  document.getElementById("secondScore").innerHTML = highscore2
+  document.getElementById("thirdScore").innerHTML = highscore3
+  document.getElementById("fourthScore").innerHTML = highscore4
+  document.getElementById("fifthScore").innerHTML = highscore5
+}
+
 function resistorColor() {
   document.getElementById("one").classList.add(color1)
   document.getElementById("labelOne").innerHTML = color1
@@ -172,8 +230,10 @@ function submitAnswer(answerResistance, answerPercentage) {
 
 function newGame() {
   score = 0
+  totalSeconds = 0
   document.getElementById("score").innerHTML = "Score: " + score
   generateAnswer()
+  timerVar = setInterval(countTimer, 1000);
 }
 
 function exitGame(){
@@ -181,8 +241,13 @@ function exitGame(){
   document.getElementById("highScore").style.display = "none"
   document.getElementById("rules").style.display = "none"
   document.getElementById("game").style.display = "none"
+  document.getElementById("rulesButton").style.display = "inline"
+  document.getElementById("highScoreButton").style.display = "inline"
   document.getElementById("exitGameButton").style.display = "none"
   document.getElementById("incorrect").style.display = "none"
+  document.getElementById("timer").innerHTML = ""
+  clearInterval(timerVar)
+  totalSeconds=0
 }
 
 function rules() {
