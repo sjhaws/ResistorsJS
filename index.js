@@ -2,6 +2,7 @@ var answerResistance
 var answerPercentage
 var keyResistance
 var keyPercentage
+var questionValue
 var score = 0
 var highscore1 = null
 var highscore2 = null
@@ -43,6 +44,8 @@ function generateAnswer() {
   document.getElementById("resistance").value=""
   document.getElementById("percentage").value=""
   
+  questionValue = 5
+
   key1 = null
   key2 = null
   key3 = null
@@ -218,17 +221,32 @@ function submitAnswer(answerResistance, answerPercentage) {
   answerPercentage = document.getElementById("percentage").value
   if (answerResistance == keyResistance && answerPercentage == keyPercentage){
     // alert("You are Correct")
-    score = score + 5
-    document.getElementById("score").innerHTML = "Score: " + score
-    document.getElementById("incorrect").style.display = "none"
-    generateAnswer()
+    if (questionValue === 5) {
+      score = score + questionValue
+      document.getElementById("score").innerHTML = "Score: " + score
+      document.getElementById("incorrect").style.display = "none"
+      totalSeconds = totalSeconds - 1
+      generateAnswer()
+    } else {
+      score = score + questionValue
+      document.getElementById("score").innerHTML = "Score: " + score
+      document.getElementById("incorrect").style.display = "none"
+      generateAnswer()
+    }
+
   } else {
     // alert("Try again")
     document.getElementById("incorrect").style.display = "block"
+    if (questionValue > 1) {
+      questionValue = questionValue - 1
+    } else {
+
+    }
   } 
 }
 
 function newGame() {
+  document.getElementById("incorrect").style.display = "none"
   score = 0
   totalSeconds = 0
   document.getElementById("score").innerHTML = "Score: " + score
@@ -244,7 +262,6 @@ function exitGame(){
   document.getElementById("rulesButton").style.display = "inline"
   document.getElementById("highScoreButton").style.display = "inline"
   document.getElementById("exitGameButton").style.display = "none"
-  document.getElementById("incorrect").style.display = "none"
   document.getElementById("timer").innerHTML = ""
   clearInterval(timerVar)
   totalSeconds=0
