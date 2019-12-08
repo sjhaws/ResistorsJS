@@ -5174,6 +5174,8 @@ tbody.collapse.show {
 }
 
 .list-group {
+  font-family: fantasy;
+  font-size: x-large;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
