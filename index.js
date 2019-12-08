@@ -90,7 +90,9 @@ function generateAnswer() {
     color1 = "aliceblue"
   }
   
-  if (key2 === 0){
+  if (key1 === 0 && key2 === 0) {
+    color2 = "red"
+  } else if(key2 === 0){
     color2 = "black"
   } else if (key2 === 1){
     color2 = "brown"
