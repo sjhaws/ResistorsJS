@@ -32,6 +32,7 @@ function generateAnswer() {
   document.getElementById("exitGameButton").style.display = "inline"
   document.getElementById("exitGameButton").innerHTML = "Exit Game"
   document.getElementById("verifiedScores").style.display = "none"
+  document.getElementById("footer").style.display = "none"
 
   document.getElementById("one").classList.remove(color1)
   document.getElementById("labelOne").innerHTML = ""
@@ -255,6 +256,7 @@ function submitAnswer(answerResistance, answerPercentage) {
 
 function newGame() {
   document.getElementById("incorrect").style.display = "none"
+  document.getElementById("footer").style.display = "none"
   score = 0
   totalSeconds = 0
   document.getElementById("score").innerHTML = "Score: " + score
@@ -272,6 +274,7 @@ function exitGame(){
   document.getElementById("highScoreButton").style.display = "inline"
   document.getElementById("exitGameButton").style.display = "none"
   document.getElementById("verifiedScores").style.display = "none"
+  document.getElementById("footer").style.display = "inline-block"
   document.getElementById("timer").innerHTML = ""
   clearInterval(timerVar)
   totalSeconds=0
@@ -285,6 +288,7 @@ function rules() {
   document.getElementById("exitGameButton").style.display = "inline"
   document.getElementById("exitGameButton").innerHTML = "Main Menu"
   document.getElementById("verifiedScores").style.display = "none"
+  document.getElementById("footer").style.display = "none"
 }
 
 function scores() { 
@@ -295,6 +299,7 @@ function scores() {
   document.getElementById("exitGameButton").style.display = "inline"
   document.getElementById("exitGameButton").innerHTML = "Main Menu"
   document.getElementById("verifiedScores").style.display = "none"
+  document.getElementById("footer").style.display = "none"
 }
 
 document.getElementById("newGameButton").addEventListener("click", newGame);
