@@ -53,12 +53,12 @@ function generateAnswer() {
   key3 = null
   key4 = null
   
-  key1 = Math.floor(Math.random() * 10);
+  key1 = Math.floor(Math.random() * 9);
   key2 = Math.floor(Math.random() * 10);
   key3 = Math.floor(Math.random() * 10);
   key4 = Math.floor(Math.random() * 2);
   
-  keyResistance = ((key1 * 10)+key2)*(10**key3)
+  keyResistance = (((key1+1) * 10)+key2)*(10**key3)
   if (key4 === 0) {
     keyPercentage = 5
   } else {
@@ -69,32 +69,28 @@ function generateAnswer() {
   // document.getElementById("percentage").value=keyPercentage
   
   if (key1 === 0){
-    color1 = "black"
-  } else if (key1 === 1){
     color1 = "brown"
-  } else if (key1 === 2){
+  } else if (key1 === 1){
     color1 = "red"
-  } else if (key1 === 3){
+  } else if (key1 === 2){
     color1 = "orange"
-  } else if (key1 === 4){
+  } else if (key1 === 3){
     color1 = "yellow"
-  } else if (key1 === 5){
+  } else if (key1 === 4){
     color1 = "green"
-  } else if (key1 === 6){
+  } else if (key1 === 5){
     color1 = "blue"
-  } else if (key1 === 7){
+  } else if (key1 === 6){
     color1 = "violet"
-  } else if (key1 === 8){
+  } else if (key1 === 7){
     color1 = "grey"
-  } else if (key1 === 9){
+  } else if (key1 === 8){
     color1 = "white"
   } else {
     color1 = "aliceblue"
   }
   
-  if (key1 === 0 && key2 === 0) {
-    color2 = "red"
-  } else if(key2 === 0){
+  if (key2 === 0){
     color2 = "black"
   } else if (key2 === 1){
     color2 = "brown"
