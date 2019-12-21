@@ -258,10 +258,10 @@ function newGame() {
   score = 0
   totalSeconds = 0
   document.getElementById("score").innerHTML = "Score: " + score
-  document.getElementById("resistance").focus();
   generateAnswer()
   clearInterval(timerVar)
   timerVar = setInterval(countTimer, 1000);
+  document.getElementById("resistance").focus();
 }
 
 function exitGame(){
