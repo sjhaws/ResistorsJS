@@ -238,12 +238,14 @@ function submitAnswer(answerResistance, answerPercentage) {
       document.getElementById("incorrect").style.display = "none"
       generateAnswer()
     }
+    document.getElementById("resistance").focus();
 
   } else {
     // alert("Try again")
     document.getElementById("incorrect").style.display = "block"
     if (questionValue > 1) {
       questionValue = questionValue - 1
+      document.getElementById("resistance").focus();
     } else {
 
     }
